@@ -75,8 +75,8 @@ def load_chat_model(fully_specified_name: str) -> BaseChatModel:
     else:
         provider = ""
         model = fully_specified_name
-
-    model_kwargs = {"temperature": 0, "stream_usage": True}
+    import os  # 1. 导入 os 模块
+    model_kwargs = {"temperature": 0, "stream_usage": True,"base_url": os.environ.get("OPENAI_BASE_URL")}
     if provider == "google_genai":
         model_kwargs["convert_system_message_to_human"] = True
     return init_chat_model(model, model_provider=provider, **model_kwargs)
