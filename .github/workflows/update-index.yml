@@ -53,6 +53,7 @@ jobs:
         run: uv run python backend/ingest.py
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
           WEAVIATE_URL: ${{ secrets.WEAVIATE_URL }}
           WEAVIATE_API_KEY: ${{ secrets.WEAVIATE_API_KEY }}
           RECORD_MANAGER_DB_URL: ${{ secrets.RECORD_MANAGER_DB_URL }}
